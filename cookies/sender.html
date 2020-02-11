@@ -1,0 +1,22 @@
+<h1>Sender</h1>
+
+<form name="sender">
+    <input type="text"
+           name="message"
+           size="30"
+           value="someInformation"/>
+</form>
+
+<script type="text/javascript">
+    function setCookie(value) {
+        document.cookie = `cookie-msg-test=${value}path=/`;
+    }
+
+    function updateMessage() {
+        const input = document.forms['sender'].elements['message'];
+        setCookie(input.value);
+        setTimeout(updateMessage, 100);
+    }
+
+    updateMessage();
+</script>
