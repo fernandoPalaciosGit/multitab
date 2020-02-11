@@ -1,0 +1,28 @@
+<h1>Receiver</h1>
+
+<form name="receiver">
+    <input type="text"
+           name="message"
+           size="30"
+           value=""
+           readonly
+           disabled>
+</form>
+
+<script type="text/javascript">
+    function getCookie() {
+        const cname = "cookie-msg-test=";
+        const cookieData = document.cookie.split(';');
+
+        return cookieData
+            .filter((data) => data.indexOf(cname) === 0)
+            .split('=')[1];
+    }
+
+    function updateMessage() {
+        document.forms['receiver'].elements['message'].value = getCookie();
+        setTimeout(updateMessage, 100);
+    }
+
+    updateMessage();
+</script>
